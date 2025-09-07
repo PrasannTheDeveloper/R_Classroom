@@ -1,0 +1,171 @@
+﻿<Window x:Class="WpfApp3.BackgroundSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="BACKGROUND SETTINGS" Height="300" Width="450"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F5F5F5"
+        WindowStyle="None"
+        AllowsTransparency="True">
+    <Window.Resources>
+        <!-- Custom Colors -->
+        <Color x:Key="PrimaryColor">#FF313131</Color>
+        <Color x:Key="GrayColor">#FFA9A9A9</Color>
+        <Color x:Key="ButtonColor1">#FFB6B6</Color>
+        <Color x:Key="ButtonColor2">#AFEEEE</Color>
+        <Color x:Key="ButtonColor3">Gray</Color>
+        <Color x:Key="ButtonColor4">AntiqueWhite</Color>
+
+        <!-- Brushes -->
+        <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}"/>
+        <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource GrayColor}"/>
+        <SolidColorBrush x:Key="ButtonBrush1" Color="{StaticResource ButtonColor1}"/>
+        <SolidColorBrush x:Key="ButtonBrush2" Color="{StaticResource ButtonColor2}"/>
+        <SolidColorBrush x:Key="ButtonBrush3" Color="{StaticResource ButtonColor3}"/>
+        <SolidColorBrush x:Key="ButtonBrush4" Color="{StaticResource ButtonColor4}"/>
+
+        <!-- Header Background Brush -->
+        <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="MediumAquamarine"/>
+
+        <!-- Button Styles -->
+        <Style x:Key="CustomButton" TargetType="Button">
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="3"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Title Style -->
+        <Style x:Key="HeaderTitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI, Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+    </Window.Resources>
+
+    <!-- Main border with rounded corners and gray border -->
+    <Border BorderBrush="{StaticResource BorderBrush}" 
+            BorderThickness="1" 
+            Background="White"
+            CornerRadius="5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header with MediumAquamarine background -->
+            <Border Grid.Row="0" 
+                    Background="{StaticResource HeaderBackgroundBrush}"
+                    CornerRadius="5,5,0,0"
+                    Padding="10,5">
+                <TextBlock Text="BACKGROUND SETTINGS" 
+                           Style="{StaticResource HeaderTitle}"/>
+            </Border>
+
+            <!-- Content Area -->
+            <Grid Grid.Row="1" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Current Background Path -->
+                <Grid Grid.Row="0" Margin="0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" 
+                               Text="CURRENT BACKGROUND:" 
+                               VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               Margin="0,0,10,0"/>
+                    <TextBlock Grid.Column="1" 
+                               x:Name="CurrentBackgroundPath"
+                               Text="NO BACKGROUND IMAGE SELECTED"
+                               VerticalAlignment="Center"
+                               TextTrimming="CharacterEllipsis"
+                               FontWeight="Bold"
+                               ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}"/>
+                </Grid>
+
+                <!-- Preview Area -->
+                <Border Grid.Row="1" 
+                        Margin="0,20,0,20"
+                        BorderBrush="{StaticResource BorderBrush}"
+                        BorderThickness="1"
+                        Padding="10"
+                        CornerRadius="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" 
+                                   Text="PREVIEW" 
+                                   FontWeight="Bold"
+                                   Margin="0,0,0,10"/>
+                        <Border Grid.Row="1" 
+                                Background="White"
+                                BorderBrush="{StaticResource BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="3">
+                            <Image x:Name="BackgroundPreview" 
+                                   Stretch="UniformToFill"/>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Buttons with different colors -->
+                <StackPanel Grid.Row="2" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right">
+                    <Button Content="BROWSE..." 
+                            Style="{StaticResource CustomButton}"
+                            Background="{StaticResource ButtonBrush1}"
+                            Margin="0,0,10,0"
+                            Click="BrowseButton_Click"/>
+                    <Button Content="CLEAR BACKGROUND" 
+                            Style="{StaticResource CustomButton}"
+                            Background="{StaticResource ButtonBrush2}"
+                            Margin="0,0,10,0"
+                            Click="ClearButton_Click"/>
+                    <Button Content="CANCEL" 
+                            Style="{StaticResource CustomButton}"
+                            Foreground="White"
+                            Background="{StaticResource ButtonBrush3}"
+                            Margin="0,0,10,0"
+                            Click="CancelButton_Click"/>
+                    <Button Content="APPLY" 
+                            Style="{StaticResource CustomButton}"
+                            Background="{StaticResource ButtonBrush4}"
+                            Click="ApplyButton_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
