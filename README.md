@@ -24,14 +24,6 @@ Get the latest version from **SourceForge.net**:
 
 ---
 
-## 🤝 Contributing
-
-Suggestions and contributions are welcome! Feel free to open an issue or pull request.
-
-💻 **GitHub Source Code:** [Your GitHub Link](https://github.com/your-github-link)
-
----
-
 ## 🖼 Screenshots
 
 <img width="1366" height="768" alt="R2" src="https://github.com/user-attachments/assets/5d1ed4bd-bdd9-4c61-b0bb-a193cefee802" />
