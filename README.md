@@ -3,9 +3,6 @@
 **R Classroom** is a lightweight desktop app that makes working with **R** simple, interactive, and modern.
 It runs all your **R code, charts, and diagrams**, with **AI integration** to boost productivity.
 
-[R Classroom.zip](https://github.com/user-attachments/files/22064472/R.Classroom.zip)
-
-
 ---
 
 ## ✨ Features
@@ -19,20 +16,6 @@ It runs all your **R code, charts, and diagrams**, with **AI integration** to bo
 
 ---
 
-## 🎥 Video Demo
-
-
-
-https://github.com/user-attachments/assets/589f6004-8900-4cca-b039-3f6cc049cd5b
-
-
-
-
-## 🚀 Getting Started
-
-1. [Download R Classroom](https://drive.google.com/file/d/1O54cPK2LpZvxd8LIHdNWbCIE1XT2ZU7k/view?usp=sharing)
-2. Install and run the application
-3. Start writing and executing R code with ease
 
 ---
 
