@@ -20,4 +20,5 @@ It runs all your R code, charts, and diagrams, with AI integration to boost prod
 📥 Download
 
 Get the latest version from SourceForge.net:
-Download R Classroom
+Download R Classroom 
+https://sourceforge.net/projects/r-classroom/
